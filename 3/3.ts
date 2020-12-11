@@ -8,18 +8,19 @@ type Editor = {
     selectedObject: EditorObject | null,
 }
 
-type ImageObject = EditorObject & {
-    image: image
-    size: number,
-    Position: position,
+type ImageObject = {
+    image: ImageData
+    width: number
+    height: number
+    position: Position,
 }
 
 type TextObject = EditorObject & {
     text: string,
-    TextWidth: number,
-    TextHeight: number,
+    textWidth: number,
+    textHeight: number,
     type: 'text',
-    Color: color,
+    color: #0000,
 }
 
 type PrimitiveObject = EditorObject & {
@@ -31,7 +32,7 @@ type Triangle = PrimitiveObject & {
     v1: point,
     v2: point,
     v3: point,
-    Color: color,
+    color: #0000,
 }
 
 type Rectangle = PrimitiveObject & {
@@ -39,7 +40,7 @@ type Rectangle = PrimitiveObject & {
     v1: point,
     v2: point,
     v3: point,
-    Color: color,
+    color: #0000,
 }
 
 type Circle = PrimitiveObject & {
@@ -47,23 +48,23 @@ type Circle = PrimitiveObject & {
     v1: point,
     v2: point,
     v3: point,
-    Color: color,
+    color: #0000,
 }
 
 type Area = {
-    Width: number,
-    Height: number,
-    Position: position
+    width: number,
+    height: number,
+    position: Position
 }
 
 type Canvas = {
-    w: number,
-    h: number,
+    width: number,
+    height: number,
     data: ImageData
 }
 
 type color = {
-    type = 'red' | 'blue' | 'green'
+    color: #0000
 }
 
 type filters = {

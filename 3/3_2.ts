@@ -14,8 +14,7 @@ function TransferArea(editor: Editor, position: {x:0,y:0}): Editor{
         ...editor,
         Area: {
             ...editor.Area,
-            w: Width,
-            h: Height           
+            position: {x:0,y:0}      
         }
     }
 }
@@ -31,13 +30,13 @@ function CutArea(editor: Editor, Width: number, Height: number): Editor{
     }
 }
 
-function DeleteArea(editor: Editor, Width: null, Height: null): Editor{
+function DeleteArea(editor: Editor): Editor{
     return{
         ...editor,
         Area: {
-            ...editor.Area,
-            w: Width,
-            h: Height
+            ...editor.Area{
+            DeleteArea.splice()
+            }
         }
     }
 }
@@ -94,7 +93,7 @@ function ExportImage(editor: Editor,): Editor{
     }
 }
 
-function ImportImage(editor: Editor,): Editor{
+function ImportImage(editor: Editor): Editor{
     return {
         ...editor,
         canvas: {
@@ -103,13 +102,11 @@ function ImportImage(editor: Editor,): Editor{
     }
 }
 
-function AddTextToCanvas(editor: Editor, Width: number, Height: number): Editor{
+function AddTextToCanvas(editor: Editor): Editor{
     return {
         ...editor,
         canvas: {
-            ...editor.canvas,
-            w: Width,
-            h: Height
+            ...editor.canvas
         }
     }
 }        
@@ -124,13 +121,13 @@ function ChooseColorOfText(editor: Editor, color: 'red'|'blue'|'green'): Editor{
     }    
 }
 
-function DeleteText(editor: Editor, Width: null, Height: null): Editor{
+function DeleteText(editor: Editor): Editor{
     return{
         ...editor,
         canvas: {
-            ...editor.canvas,
-            w: Width,
-            h: Height
+            ...editor.canvas{
+            DeleteText.splice()
+            }
         }
     }
 }
@@ -168,13 +165,11 @@ function ChooseColorOfPrimitive(editor: Editor, color:'red'|'blue'|'green'): Edi
     }    
 }
 
-function DeletePrimitive(editor: Editor, Width: null, Height: null): Editor{
+function DeletePrimitive(editor: Editor): Editor{
     return{
         ...editor,
         canvas: {
-            ...editor.canvas,
-            w: Width,
-            h: Height
+            ...editor.canvas
         }
     }
 }
@@ -195,6 +190,9 @@ function DeleteFilters(editor: Editor, filters: null): Editor{
         canvas: {
             ...editor.canvas,
             Filters: filters
+            {
+                DeleteFilters.splice()
+            }
         }
     }    
 }
